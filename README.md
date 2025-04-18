@@ -1,8 +1,8 @@
 # Hotel Management System
 
-[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/) [![Swing](https://img.shields.io/badge/Swing-GUI-blue?style=for-the-badge)](https://docs.oracle.com/javase/tutorial/uiswing/) [![NetBeans](https://img.shields.io/badge/NetBeans-IDE-blue?style=for-the-badge&logo=apache-netbeans-ide)](https://netbeans.apache.org/)
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/) [![Swing](https://img.shields.io/badge/Swing-GUI-blue?style=for-the-badge)](https://docs.oracle.com/javase/tutorial/uiswing/) [![NetBeans](https://img.shields.io/badge/NetBeans-IDE-blue?style=for-the-badge&logo=apache-netbeans-ide)](https://netbeans.apache.org/) [![MySQL](https://img.shields.io/badge/MySQL-DB-blue?style=for-the-badge&logo=mysql)](https://www.mysql.com/)
 
-A modern, user-friendly Hotel Management System built with Java and Swing, designed to streamline hotel operations such as guest check-in, check-out, and room management. This project is ideal for learning, extending, or deploying in small to medium-sized hotels.
+A modern, user-friendly Hotel Management System built with Java and Swing, designed to streamline hotel operations such as guest check-in, check-out, room booking, and food ordering. This project also integrates a MySQL database for storing hotel-related data.
 
 [GitHub Repository](https://github.com/code-tech-knowledge/Hotel-Management-System)
 
@@ -18,9 +18,9 @@ A modern, user-friendly Hotel Management System built with Java and Swing, desig
 ## ✨ Features
 - Animated welcome screen
 - Secure login functionality
-- Room and guest management modules
+- Room, guest, and food order management
+- Java + MySQL database integration
 - Modular, scalable codebase
-- Easy to extend (add billing, booking, etc.)
 - Clean, intuitive Swing-based GUI
 
 ---
@@ -30,6 +30,7 @@ A modern, user-friendly Hotel Management System built with Java and Swing, desig
 - `src/icons/` — Image resources for the UI
 - `nbproject/` — NetBeans project configuration
 - `build.xml`, `manifest.mf` — Build and manifest files
+- `Hotel management project all sql code.sql` — SQL file containing all DB schemas
 
 ---
 
@@ -38,36 +39,51 @@ A modern, user-friendly Hotel Management System built with Java and Swing, desig
 ### Prerequisites
 - Java Development Kit (JDK) 8 or higher
 - NetBeans IDE (recommended)
+- MySQL Server (Workbench or CLI)
 
 ### Setup Instructions
-1. Clone this repository:
-   ```
-   git clone https://github.com/code-tech-knowledge/Hotel-Management-System.git
-   ```
-2. Open NetBeans IDE.
-3. Go to `File > Open Project` and select the project directory.
-4. Build the project to resolve dependencies and compile the code.
-5. Run the project. The main entry point is `HotelManagementSystem.java`.
+
+#### 1. Clone the repository
+```bash
+git clone https://github.com/code-tech-knowledge/Hotel-Management-System.git
+```
+
+#### 2. Setup the MySQL Database
+- Open **MySQL Workbench** or any MySQL client
+- Run the provided SQL file:
+  ```
+  Hotel management project all sql code.sql
+  ```
+  This creates necessary tables such as:
+  - `admin_login`
+  - `rooms`
+  - `guests`
+  - `food_orders`
+  - and others used in the application
+
+- Update your database connection credentials in the Java code (usually in a `DBConnection` or similar class).
+
+#### 3. Open the Project in NetBeans
+- Launch NetBeans IDE
+- Go to `File > Open Project` and select the project directory
+- Clean and Build the project to compile all Java files
+
+#### 4. Run the Project
+- Main entry point: `HotelManagementSystem.java`
 
 ### Running from Command Line
-1. Navigate to the `src` directory:
-   ```
-   cd src
-   ```
-2. Compile the Java files:
-   ```
-   javac hotel/management/system/*.java
-   ```
-3. Run the main class:
-   ```
-   java hotel.management.system.HotelManagementSystem
-   ```
+```bash
+cd src
+javac hotel/management/system/*.java
+java hotel.management.system.HotelManagementSystem
+```
 
 ---
 
 ## 📦 Dependencies
 - Java SE (Swing for GUI)
-- Image resources in `src/icons/`
+- MySQL (for data storage)
+- JDBC Driver for MySQL (included in the project lib or manually added)
 
 ---
 
@@ -79,46 +95,50 @@ A modern, user-friendly Hotel Management System built with Java and Swing, desig
 ---
 
 ## 📚 Usage
-- On launch, the application displays a welcome screen with animated text and a "Next" button.
-- Clicking "Next" proceeds to the login screen (ensure the `Login` class is implemented).
-- After login, access room and guest management features.
-- Extend the system by adding modules for booking, billing, and more.
+- Launch the app and login with valid admin credentials
+- View and manage room bookings
+- Add or update guest check-ins and check-outs
+- Manage food orders
+- Extend with billing, calendar booking, reports, etc.
 
 ---
 
 ## 🤝 Contributing
-Contributions are welcome! To contribute:
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -am 'Add new feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Open a Pull Request
+We welcome contributions!  
+**Steps:**
+1. Fork the repo  
+2. Create a branch: `git checkout -b feature/MyFeature`  
+3. Commit: `git commit -m "Add feature"`  
+4. Push: `git push origin feature/MyFeature`  
+5. Open a pull request  
 
 ---
 
 ## ❓ FAQ
-**Q: Can I use this project for commercial purposes?**
-A: This project is for educational purposes. Please contact the owner for commercial licensing.
 
-**Q: How do I add new features?**
-A: Follow the modular structure in `src/hotel/management/system/` and refer to existing classes for guidance.
+**Q: How do I change the database connection?**  
+A: Locate the database connection class and update the JDBC URL, username, and password.
 
-**Q: Where are the images/icons?**
-A: All images are in the `src/icons/` directory.
+**Q: What if the images/icons are not loading?**  
+A: Ensure the path to the `src/icons/` folder is correct and images are not renamed.
+
+**Q: Can I use this project for college or learning?**  
+A: Yes! This is ideal for academic and personal learning use.
 
 ---
 
 ## 📬 Contact
-For questions, suggestions, or support, please open an issue on [GitHub](https://github.com/code-tech-knowledge/Hotel-Management-System/issues) or contact the project owner via the repository.
+Raise an issue on the [GitHub issues page](https://github.com/code-tech-knowledge/Hotel-Management-System/issues)  
+or connect with the project author via GitHub.
 
 ---
 
 ## 📝 License
-This project is for educational purposes. For licensing details, please check with the project owner.
+This project is intended for educational purposes only. For commercial use, please contact the author for permission.
 
 ---
 
 ## 🙏 Acknowledgments
-- Developed as a Java Swing project for hotel management.
-- Images used are located in the `src/icons/` directory.
-- Inspired by open-source hotel management solutions.
+- Java Swing for GUI development  
+- MySQL for robust data storage  
+- Open-source inspiration and community support
